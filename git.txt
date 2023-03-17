@@ -1,5 +1,6 @@
 cmd --> Opens the present directory on the command line 
 cd --> Change Directory. Used to change the Directory
+q --> To break the command
 
 **********************Git Commands*********************
 > git config --global user.name "Enter Username Here" 
@@ -20,3 +21,7 @@ cd --> Change Directory. Used to change the Directory
 > touch .gitignore     [.gitignore file gets created]
 > git diff      [Compares working directory with staging area]
 > git diff --staged     [Compares previous commit with staging area]
+> git commit -a -m "comment"     [skipping staging area/ direct commit (untracked files can't be commited directly, It is for tracked files only)]
+> git rm fileName     [to remove any file from the repository]
+> git mv fileName renamedFileName     [To rename the file name]
+> git rm --cached fileName       [Used to untrack any file which has been tracked till now]
