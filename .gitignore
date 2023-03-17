@@ -1,0 +1,5 @@
+# *.log        [files  (all log files)]
+# *.txt        [files  (all txt files)]
+
+# div/       [folder  (all div folders will be ignored)]
+# /div/      [only outer div will be ignored. And the inner div will be shown as untracked]
