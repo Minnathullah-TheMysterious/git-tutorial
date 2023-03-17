@@ -25,3 +25,4 @@ q --> To break the command
 > git rm fileName     [to remove any file from the repository]
 > git mv fileName renamedFileName     [To rename the file name]
 > git rm --cached fileName       [Used to untrack any file which has been tracked till now]
+> 
