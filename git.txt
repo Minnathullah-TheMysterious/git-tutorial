@@ -2,29 +2,82 @@ cmd --> Opens the present directory on the command line
 cd --> Change Directory. Used to change the Directory
 q --> To break the command
 
-**********************Git Commands*********************
+*******************************************Git Commands*********************************************
 > git config --global user.name "Enter Username Here" 
 > git config --global email "Enter email Here"
 > git config --list      [To see all the information regarding user]
 > git config user.name       [To see name of the user]
 > git config user.email       [To see email of the user]
 
-> git status    [current status of git repository]
-> git init      [initializes the folder as git repository]
-> git add -a     [Puts all the files in the staging area]
+
+********commit*********
 > git commit -m "initial commit"     [To commit]
+> git commit -a -m "comment"     [skipping staging area/ direct commit (untracked files can't be commited directly, It is for tracked files only)]
+> git commit --amend      [to change anybody's commit {
+    > it will take you to the vim editor
+    > type 'i' to edit
+    > then press "esc" to write at the bottom of the screen
+    > then type ":wq" & then press "enter"
+    > now again type(
+        > git log -p -1 to see the changes in the message
+    )
+}]
+
+
+*********delete***********
 > rm -rf .git     [Used to delete the git repository (danger)]
-> git clone anyReopUrl     [clones the reop from server to your system]
-> git add fileName     [Brings the file to the staging area]
+> git rm fileName     [to remove any file from the repository]
+
+
+*********create***********
 > touch first.txt     [A file gets created in the name of first.txt]
 > touch .gitignore     [.gitignore file gets created]
+
+
+*********unmodify**********
+> git checkout -f      [unmodifies all the files which are modified after the last commit. (could be dangerous sometimes)]
+> git checkout --fileName      [to unmodify the file]
+
+
+*********staging area*******
+> git add -a     [Puts all the files in the staging area]
+> git add fileName     [Brings the file to the staging area]
+
+
+***************comparison with staging area*************
 > git diff      [Compares working directory with staging area]
 > git diff --staged     [Compares previous commit with staging area]
-> git commit -a -m "comment"     [skipping staging area/ direct commit (untracked files can't be commited directly, It is for tracked files only)]
-> git rm fileName     [to remove any file from the repository]
+
+
+**********unstage***********
+> git restore --staged fileName      [to unstage any file]
+
+
+**********discard changes**********
+> git restore fileName      [to discard changes in the working directory]
+
+
+************renameing**********
 > git mv fileName renamedFileName     [To rename the file name]
+
+
+************untrack the tracked file************
 > git rm --cached fileName       [Used to untrack any file which has been tracked till now]
 
+
+************current status of repo**********
+> git status    [current status of git repository]
+
+
+************create a repo*************
+> git init      [initializes the folder as git repository]
+
+
+*************cloning repos*************
+> git clone anyReopUrl     [clones the repo from server to your system]
+
+
+*********log*********
 > git log     [information of all the previous commits]
 > git log -p     [to see which line is committed, which is removed , which is added]
 > git log -p -3     [cand see 3 commits along with diff.]
@@ -40,14 +93,42 @@ q --> To break the command
 > git log --since=2.days      [work done in past 2 days]
 > git log --pretty=format:"%h -- %an"       [can be found on git-log documentation website (go there to find more)]
 
-> git commit --amend      [to change anybody's commit {
-    > it will take you to the vim editor
-    > type 'i' to edit
-    > then press "esc" to write at the bottom of the screen
-    > then type ":wq" & then press "enter"
-    > now again type(
-        > git log -p -1 to see the changes in the message
-    )
+
+*************push & pull to/from remote******
+> git remote
+> git remote -v     [shows two url's for push & pull]
+> git push      [
+    Either specify the URL from the command-line or configure a remote repository using
+    git remote add <name> <url>
+    and then push using the remote name
+    git push <name>
+]
+
+
+*******alias*******
+> alias    [used to short the commands. eg:{
+    > git config --global alias.st "status"     [git status == git st]
 }]
 
->
+
+************Branching*************
+> git checkout -b develop       [creates anew branch with the name of "develop" & takes you there]
+> git checkout develop       [to move from master to develop]
+> git checkout master       [to move from develop to master]
+> git branch      [to see all the branches]
+> git merge "name of the branch where you want to merge"
+> git branch -v       
+> git branch --merged      [already merged branches]
+> git branch --no-merged       [not merged branches]
+
+
+*******Deleting branches*******
+> git branch -d develop       [gives error if develop is not merged{ 
+    >git branch -D devlop     [branch gets deleted]
+}]
+
+
+********Pushing git branches to remote repositories*********
+> git push origin bugfix     [origin-->main branch name, bugfix-->other branch. (Always be in the same branch which branch you are posting)]
+> git push origin bugfix:mybugfix     [changes the name of the branch on the remote]
+> git push -d origin bugfix       [to delete branch in remote]
