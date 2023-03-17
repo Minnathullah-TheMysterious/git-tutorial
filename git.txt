@@ -13,7 +13,6 @@ q --> To break the command
 > git init      [initializes the folder as git repository]
 > git add -a     [Puts all the files in the staging area]
 > git commit -m "initial commit"     [To commit]
-> git log     [information of all the previous commits]
 > rm -rf .git     [Used to delete the git repository (danger)]
 > git clone anyReopUrl     [clones the reop from server to your system]
 > git add fileName     [Brings the file to the staging area]
@@ -25,4 +24,30 @@ q --> To break the command
 > git rm fileName     [to remove any file from the repository]
 > git mv fileName renamedFileName     [To rename the file name]
 > git rm --cached fileName       [Used to untrack any file which has been tracked till now]
-> 
+
+> git log     [information of all the previous commits]
+> git log -p     [to see which line is committed, which is removed , which is added]
+> git log -p -3     [cand see 3 commits along with diff.]
+> git log --stat     [shows commits very briefly]
+> git log --pretty=online      [all the commits shown in one line, Helpful to take prints]
+> git log --pretty=short      [shows commits very shortly. (*Author name. *Commit. *Message)]
+> git log --pretty=full      [shows commits very shortly. (*Author name. *Commit. *Message. and some more details)]
+> git log --since=2.days      [work done in past 2 days]
+> git log --since=2.weeks      [work done in past 2 weeks]
+> git log --since=2.months      [work done in past 2 months]
+> git log --since=2.years      [work done in past 2 years]
+> git log --since=2.hour      [work done in past 2 hour]
+> git log --since=2.days      [work done in past 2 days]
+> git log --pretty=format:"%h -- %an"       [can be found on git-log documentation website (go there to find more)]
+
+> git commit --amend      [to change anybody's commit {
+    > it will take you to the vim editor
+    > type 'i' to edit
+    > then press "esc" to write at the bottom of the screen
+    > then type ":wq" & then press "enter"
+    > now again type(
+        > git log -p -1 to see the changes in the message
+    )
+}]
+
+>
